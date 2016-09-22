@@ -27,15 +27,39 @@
     <ClInclude Include="MyString.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Rect.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Person.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Student.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Teacher.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="MyFirstCppTest_001.cpp">
+    <ClCompile Include="MyString.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="MyString.cpp">
+    <ClCompile Include="CppTest_001.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Rect.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Person.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Student.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Teacher.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
