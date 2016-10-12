@@ -1,6 +1,10 @@
 #include "stdafx.h"
 #include "MyString.h"
 
+MyString::MyString() {
+
+}
+
 MyString::MyString(char* str)
 {
 
@@ -33,8 +37,8 @@ MyString::MyString(MyString& strClass)
 
 MyString::~MyString()
 {
-	//TODO:指向字符数组的指针，是否需用delete []
-	delete pData;
+	//delete pData;
+	delete [] pData;
 }
 
 int MyString::Strlen(char* str) {
@@ -67,7 +71,7 @@ MyString MyString::Strcpy(char* str) {
 	arrayLength = Strlen(str);
 
 	if (pData != NULL) {
-		delete pData; //删除旧数据
+		delete [] pData; //删除旧数据
 	}
 
 	pData = new char[arrayLength + 1];
@@ -89,7 +93,7 @@ MyString MyString::Strcpy(MyString& strClass) {
 	arrayLength = strClass.Length();
 
 	if (pData != NULL) {
-		delete pData; //删除旧数据
+		delete [] pData; //删除旧数据
 	}
 
 	pData = new char[arrayLength + 1];
@@ -113,7 +117,7 @@ MyString MyString::Strncpy(char* str, int n) {
 	}
 
 	if (pData != NULL) {
-		delete pData; //删除旧数据
+		delete [] pData; //删除旧数据
 	}
 
 	pData = new char[arrayLength + 1];
@@ -137,7 +141,7 @@ MyString MyString::Strncpy(MyString& strClass,int n) {
 	}
 
 	if (pData != NULL) {
-		delete pData; //删除旧数据
+		delete [] pData; //删除旧数据
 	}
 
 	pData = new char[arrayLength + 1];
@@ -181,7 +185,7 @@ MyString MyString::Strcat(char* str) {
 
 	pData[arrayLength] = '\0';
 
-	delete pPreData;
+	delete [] pPreData;
 	return *this;
 }
 
@@ -203,7 +207,7 @@ MyString MyString::Strcat(MyString& strClass) {
 
 	pData[arrayLength] = '\0';
 
-	delete pPreData;
+	delete [] pPreData;
 	return *this;
 }
 
@@ -223,7 +227,7 @@ MyString MyString::Strncat(char* str, int n) {
 
 	pData[arrayLength] = '\0';
 
-	delete pPreData;
+	delete [] pPreData;
 	return *this;
 }
 
@@ -243,7 +247,7 @@ MyString MyString::Strncat(MyString& strClass, int n) {
 
 	pData[arrayLength] = '\0';
 
-	delete pPreData;
+	delete [] pPreData;
 	return *this;
 }
 
@@ -350,7 +354,7 @@ MyString MyString::Insert(char* str, int index) {
 
 	pData[arrayLength] = '\0';
 
-	delete pPreData;
+	delete [] pPreData;
 	return *this;
 }
 
@@ -376,7 +380,7 @@ MyString MyString::Insert(MyString& strClass, int index) {
 
 	pData[arrayLength] = '\0';
 
-	delete pPreData;
+	delete [] pPreData;
 	return *this;
 }
 
@@ -397,7 +401,7 @@ MyString MyString::SubString(int index) {
 
 	pData[arrayLength] = '\0';
 
-	delete pPreData;
+	delete [] pPreData;
 	return *this;
 }
 
@@ -418,7 +422,7 @@ MyString MyString::SubString(int index0, int index1) {
 
 	pData[arrayLength] = '\0';
 
-	delete pPreData;
+	delete [] pPreData;
 	return *this;
 }
 

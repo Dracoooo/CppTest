@@ -5,9 +5,18 @@ class Student :	public Person
 {
 protected:
 	MyString _class;
-	long int stuNumber;
+	long stuNumber;
 public:
 	Student();
-	~Student();
+	Student(char*, int, char*, long);
+
+	void SetClass(char*);
+	void SetClass(MyString);
+
+	void SetStuNumber(long);
+
+
+	void ShowInformation();
+
 };
 

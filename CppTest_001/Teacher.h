@@ -3,11 +3,18 @@
 class Teacher :	public Person
 {
 protected:
-	long int jobNumber;
+	
+	long jobNumber;
 	int taughtAge;
 
 public:
 	Teacher();
-	~Teacher();
+	Teacher(char*, int, long, int);
+
+	void SetJobNumber(long);
+
+	void SetTaughtAge(int);
+
+	void ShowInformation();
 };
 

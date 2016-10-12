@@ -20,6 +20,7 @@ private:
 public:
 #pragma region 构造析构函数
 
+	MyString();
 	MyString(char*);
 	MyString(MyString&);
 
@@ -59,17 +60,17 @@ public:
 	MyString SubString(int, int);
 
 	//TODO:完善下面方法
-	MyString* Split(char); //在出现给定字符的地方，将字符串拆分为字符串数组
-	MyString ToLower(); //把字符串转换为小写形式
-	MyString ToUpper(); //把字符串转换为大写形式
-	MyString Trim(); //删除首尾空白
-	int IndexOf(char);//取得字符串第一次出现某个给定字符串或字符的位置 
-	int IndexOf(char*); 
-	int IndexOf(MyString&);
-	int* IndexOfAny(char);
-	int* IndexOfAny(char*);
-	int* IndexOfAny(MyString&);
-	MyString Strrev(); //字符串倒序
+	//MyString* Split(char); //在出现给定字符的地方，将字符串拆分为字符串数组
+	//MyString ToLower(); //把字符串转换为小写形式
+	//MyString ToUpper(); //把字符串转换为大写形式
+	//MyString Trim(); //删除首尾空白
+	//int IndexOf(char);//取得字符串第一次出现某个给定字符串或字符的位置 
+	//int IndexOf(char*); 
+	//int IndexOf(MyString&);
+	//int* IndexOfAny(char);
+	//int* IndexOfAny(char*);
+	//int* IndexOfAny(MyString&);
+	//MyString Strrev(); //字符串倒序
 
 #pragma endregion
 
@@ -93,7 +94,7 @@ public:
 #pragma endregion
 
 	//TODO:更多的方法
-	//TODO:const常量也适用
+	//TODO:const常量也应适用
 
 
 };

@@ -3,8 +3,10 @@
 
 #include "stdafx.h"
 #include <iostream>
+#include <climits>
 #include "MyString.h"
-
+#include "Student.h"
+#include "Teacher.h"
 
 int main()
 {
@@ -36,8 +38,57 @@ int main()
 	//cout << test << endl;
 	//cout << "Length()\t\t\t" << test.Length() << endl;
 
-	
+	cout << "Student和Teacher类展示模版" <<endl;
 
+	Student s1{"Tom",18, "class1",311500000 };
+	s1.ShowInformation();
+	
+	cout << endl;
+
+	Teacher t1{ "Jom",20,123456789,2 };
+	t1.ShowInformation();
+
+	cout << endl;
+	char pData[20];
+	int nData;
+	Student stu;
+	cout << "请输入学生姓名：  " <<endl;
+	cin.getline(pData,20);
+	stu.SetName(pData);
+	cout << "请输入学生年龄：  " << endl;
+	cin >> nData;
+	stu.SetAge(nData);
+	cin.get();
+	cout << "请输入学生班级：  " << endl;
+	cin.getline(pData, 20);
+	stu.SetClass(pData);
+	cout << "请输入学生学号：  " << endl;
+	cin >> nData;
+	stu.SetStuNumber(nData);
+	cin.get();
+	cout << endl;
+	stu.ShowInformation();
+
+	cout << endl;
+	cin.clear();
+	cin.sync();
+
+	Teacher tea;
+	cout << "请输入教师姓名：  " << endl;
+	cin.getline(pData, 20);
+	tea.SetName(pData);
+	cout << "请输入教师年龄：  " << endl;
+	cin >> nData;
+	tea.SetAge(nData);
+	cin.get();
+	cout << "请输入教师工号：  " << endl;
+	cin >> nData;
+	tea.SetJobNumber(nData);
+	cout << "请输入教师教龄：  " << endl;
+	cin >> nData;
+	tea.SetTaughtAge(nData);
+	cout << endl;
+	tea.ShowInformation();
 
 
 
