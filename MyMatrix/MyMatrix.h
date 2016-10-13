@@ -6,8 +6,14 @@
 class MyMatrix
 {
 public:
+	MyMatrix();
 	MyMatrix(int r, int c);
 	~MyMatrix();
+
+	int GetRow() { return m_row; }
+	int GetCol() { return m_col; }
+	
+	void Init(int r,int c); //允许声明矩阵之后再定义矩阵的行数列数
 
 	void Create(); //创建输入一个矩阵
 	void Output(); //输出显示一个矩阵
@@ -49,6 +55,8 @@ public:
 	MyMatrix& operator*=(float);
 	MyMatrix& operator/(float);
 	MyMatrix& operator/=(float);
+	//TODO: 实现可以转换计算，比如现在矩阵*常量可以，但是常量*矩阵就不可以了（友元是什么）
+
 
 #pragma endregion
 
@@ -69,4 +77,4 @@ private:
 //TODO:实现常量矩阵也适用
 //TODO：函数传值采用const，防止被修改
 //TODO: 函数返回值为矩阵，而不是void这样方便修改
-//TODO: 验证输入的正确性，float数？int数？
+//TODO: 验证输入的正确性，float数？int数？ 警报提示?(目前采取忽略措施)

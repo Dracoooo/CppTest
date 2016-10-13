@@ -1,11 +1,9 @@
-// MyMatrix.cpp : 定义控制台应用程序的入口点。
-//
-
 #include "stdafx.h"
 #include "MyMatrix.h"
 #include <cmath>
 #include <iostream>
 
+MyMatrix::MyMatrix() {}
 
 MyMatrix::MyMatrix(int r, int c) {
 	m_row = r;
@@ -27,11 +25,33 @@ MyMatrix::~MyMatrix() {
 	delete[] m_pData;
 }
 
+void MyMatrix::Init(int r, int c) {
+	m_row = r;
+	m_col = c;
+
+	m_pData = new float*[m_row];
+	for (int i = 0; i < m_row; i++) {
+		m_pData[i] = new float[m_col];
+		for (int j = 0; j < m_col; j++) {
+			m_pData[i][j] = 0;
+		}
+	}
+}
+
 void MyMatrix::Create() {
 	std::cout << "请输入一个" << m_row << "*" << m_col << "矩阵的值" << std::endl;
 	for (int i = 0; i < m_row; i++) {
 		for (int j = 0; j < m_col; j++) {
-			std::cin >> m_pData[i][j];
+			//对错误的输入进行忽略
+			if (!(std::cin >> m_pData[i][j]))
+			{
+				std::cin.clear();
+				while (std::cin.get() != '\n') {
+					continue;
+				}
+				j--;
+			}
+
 		}
 	}
 
@@ -42,7 +62,7 @@ void MyMatrix::Output() {
 	for (int i = 0; i < m_row; i++) {
 		for (int j = 0; j < m_col; j++) {
 			//TODO: float类型的只区分0和-0
-			if (fabs(m_pData[i][j])<0.001) {
+			if (fabs(m_pData[i][j]) < 0.001) {
 				m_pData[i][j] = 0;
 			}
 			std::cout << m_pData[i][j] << '\t';
@@ -201,7 +221,7 @@ void MyMatrix::Cofactor(const MyMatrix& other, int other_i, int other_j, MyMatri
 
 void MyMatrix::Inverse() {
 	float det = GetDet();
-	
+
 	if (fabs(det) < 0.001) {
 		std::cout << "奇异矩阵无法求逆" << std::endl;
 		return;
@@ -213,7 +233,7 @@ void MyMatrix::Inverse() {
 		for (int j = 0; j < Adjugate.m_col; j++) {
 			//TODO：Cofactor求余子式的与行列式的耦合性太高
 			MyMatrix temp{ m_row - 1,m_col - 1 };
-			Cofactor(*this,j + 1, i + 1, temp);
+			Cofactor(*this, j + 1, i + 1, temp);
 			Adjugate[i][j] = (int)pow(-1, i + j) * Det(temp);
 		}
 	}
@@ -306,51 +326,4 @@ MyMatrix& MyMatrix::operator/=(float n) {
 }
 
 #pragma endregion
-
-
-
-
-
-int main()
-{
-
-	MyMatrix m1{ 3,3 };
-	m1.Create();
-	m1.Output();
-	std::cout << "创建矩阵m1成功" << std::endl;
-	std::cout << "得到矩阵（2，2）元的值：" << m1.GetElement(2, 2) << std::endl;
-
-	//MyMatrix m2{ 3,3 };
-	//m2.Create();
-	//m2.Output();
-	//std::cout << "创建矩阵m2成功" << std::endl;
-	//m1.Sum(m2);
-	//std::cout << "第一个矩阵m1与第二个矩阵m2相加得：" << std::endl;
-	//m1.Output();
-
-	//MyMatrix m3{ 3,3 };
-	//m3.Create();
-	//m3.Output();
-	//std::cout << "创建矩阵m3成功" << std::endl;
-	//m1.Minus(m3);
-	//std::cout << "再与第三个矩阵m3相减得：" << std::endl;
-	//m1.Output();
-
-	//MyMatrix m4{ 3,3 };
-	//m4.Create();
-	//m4.Output();
-	//std::cout << "创建矩阵m4成功" << std::endl;
-	//m1.Multiply(m4);
-	//std::cout << "再与第四个矩阵m4相乘得：" << std::endl;
-	//m1.Output();
-
-
-	//std::cout << "此时矩阵m1的行列式的值为：" << m1.GetDet() << std::endl;
-
-	m1.Inverse();
-	m1.Output();
-
-
-	return 0;
-}
 

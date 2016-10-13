@@ -32,6 +32,9 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
     <ClCompile Include="MyMatrix.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
